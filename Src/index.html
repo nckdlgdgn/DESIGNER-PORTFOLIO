@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nicko R. Dalugdugan — UI/UX Designer & Web Designer portfolio showcasing graphic design, UI/UX design, and website design projects.">
+    <meta name="keywords" content="UI/UX Designer, Web Designer, Graphic Designer, Portfolio, Figma, Creative">
+    <meta name="author" content="Nicko R. Dalugdugan">
+    <title>Nicko R. Dalugdugan — UI/UX & Web Designer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Nicko.</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+                <a href="./Nicko_Dalugdugan_CV.pdf" download class="nav-cv-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download CV
+                </a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Open to work — Full-time & Remote
+                </div>
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">
+                    Nicko R.<br>
+                    <span class="hero-name-gradient">Dalugdugan</span>
+                </h1>
+                <h2 class="hero-title">
+                    <span class="typed-text">UI/UX Designer</span><span class="cursor"></span>
+                </h2>
+                <p class="hero-description">
+                    A passionate designer specializing in creating beautiful, user-centered digital experiences.
+                    I turn ideas into visually stunning interfaces and websites that deliver real results.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                        View My Work
+                    </a>
+                    <a href="./Nicko_Dalugdugan_CV.pdf" download class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Download CV
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Contact Me
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>2+</h3>
+                        <p>Years of<br>Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects<br>Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Design<br>Tools</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-frame">
+                        <!-- Replace src with your actual photo, e.g. src="photo.jpg" -->
+                        <div class="hero-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">Add your photo here</span>
+                        </div>
+                    </div>
+                    <!-- Floating Cards -->
+                    <div class="hero-float-card" style="top: 15%; right: -30px;">
+                        <div class="float-icon figma">🎨</div>
+                        <div class="float-text">
+                            <span>Favorite Tool</span>
+                            <p>Figma</p>
+                        </div>
+                    </div>
+                    <div class="hero-float-card" style="bottom: 20%; left: -40px;">
+                        <div class="float-icon design">📱</div>
+                        <div class="float-text">
+                            <span>Specialization</span>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </div>
+                    <div class="hero-float-card" style="bottom: 5%; right: -20px;">
+                        <div class="float-icon web">🌐</div>
+                        <div class="float-text">
+                            <span>Also Love</span>
+                            <p>Web Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">About Me</p>
+                <h2 class="section-title">Bringing Ideas to Life<br>Through Design</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <h3>Who I Am</h3>
+                    <p>
+                        I am Nicko Ronquillo Dalugdugan, a 4th-year BS Mathematics student with a specialization in
+                        Computer Science at Bulacan State University. I am passionate about designing websites, whether
+                        through no-code tools or front-end development with code.
+                    </p>
+                    <p>
+                        I am confident that I can contribute fresh ideas, creativity, and dedication while continuing to
+                        grow as a web designer and UI/UX specialist. I'm eager to gain more experience in the field and
+                        further enhance my technical and creative skills.
+                    </p>
+
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <span class="label">Name</span>
+                            <span class="value">Nicko R. Dalugdugan</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="label">Location</span>
+                            <span class="value">Santa Maria, Bulacan, Philippines</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="label">Email</span>
+                            <span class="value">nickodalugdugan27@gmail.com</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="label">Education</span>
+                            <span class="value">BS Math in CS — BulSU</span>
+                        </div>
+                    </div>
+
+                    <div class="tools-section">
+                        <h4>Design Tools I Use</h4>
+                        <div class="tools-grid">
+                            <span class="tool-tag">Figma</span>
+                            <span class="tool-tag">Canva</span>
+                            <span class="tool-tag">Adobe Photoshop</span>
+                            <span class="tool-tag">Wix</span>
+                            <span class="tool-tag">Elementor</span>
+                            <span class="tool-tag">HTML/CSS</span>
+                            <span class="tool-tag">JavaScript</span>
+                            <span class="tool-tag">Aseprite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-section reveal reveal-delay-2">
+                    <h3>My Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>UI/UX Design</span>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Website Layout & Design</span>
+                            <span class="percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Graphic Design</span>
+                            <span class="percentage">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Color Theory & Composition</span>
+                            <span class="percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Prototyping & Wireframing</span>
+                            <span class="percentage">87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Front-End Development</span>
+                            <span class="percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Projects</p>
+                <h2 class="section-title">Selected Works</h2>
+                <p class="section-subtitle">Browse my projects by category — from graphic design to full website builds.
+                </p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="projects-tabs reveal">
+                <button class="tab-btn active" data-filter="all">All Projects</button>
+                <button class="tab-btn" data-filter="graphic">🎨 Graphic Design</button>
+                <button class="tab-btn" data-filter="uiux">📱 UI/UX Design</button>
+                <button class="tab-btn" data-filter="webdesign">🌐 Website Design</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="projects-grid">
+
+                <!-- GRAPHIC DESIGN PROJECTS -->
+                <div class="project-card reveal" data-category="graphic">
+                    <div class="project-image">
+                        <div class="project-placeholder graphic">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Graphic Design</span>
+                        <h3>Brand Identity Design</h3>
+                        <p>Complete brand identity including logo design, color palette, typography system, and brand
+                            guidelines.</p>
+                        <div class="project-tools">
+                            <span>Canva</span>
+                            <span>Photoshop</span>
+                            <span>Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal reveal-delay-1" data-category="graphic">
+                    <div class="project-image">
+                        <div class="project-placeholder graphic">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Graphic Design</span>
+                        <h3>Social Media Campaign</h3>
+                        <p>Eye-catching social media visuals and marketing materials designed for maximum engagement.
+                        </p>
+                        <div class="project-tools">
+                            <span>Canva</span>
+                            <span>Photoshop</span>
+                            <span>Marketing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI/UX DESIGN PROJECTS -->
+                <div class="project-card reveal" data-category="uiux">
+                    <div class="project-image">
+                        <div class="project-placeholder uiux">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3>CS Wizards Publication — BulSU</h3>
+                        <p>Website user interface design for the CS Wizards Publication of Bulacan State University,
+                            featuring homepage, article listings, and contact section with clean visuals and
+                            user-friendly navigation.</p>
+                        <div class="project-tools">
+                            <span>Figma</span>
+                            <span>UI Design</span>
+                            <span>Wireframing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal reveal-delay-1" data-category="uiux">
+                    <div class="project-image">
+                        <div class="project-placeholder uiux">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3>BIMS Redesign — Philippine Batteries Inc</h3>
+                        <p>Redesigned the BIMS system with a more user-friendly interface, improving usability and
+                            workflow efficiency. Successfully implemented by the company.</p>
+                        <div class="project-tools">
+                            <span>Figma</span>
+                            <span>UX Research</span>
+                            <span>Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal reveal-delay-2" data-category="uiux">
+                    <div class="project-image">
+                        <div class="project-placeholder uiux">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polygon points="10 8 16 12 10 16 10 8" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3>Game UI & Visual Assets</h3>
+                        <p>Designed and developed the entire visual assets and interface of a game using Aseprite,
+                            including engaging sprites, animations, and UI elements.</p>
+                        <div class="project-tools">
+                            <span>Aseprite</span>
+                            <span>Game UI</span>
+                            <span>Pixel Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEBSITE DESIGN PROJECTS -->
+                <div class="project-card reveal" data-category="webdesign">
+                    <div class="project-image">
+                        <div class="project-placeholder webdesign">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Website Design</span>
+                        <h3>Modern Landing Page</h3>
+                        <p>Responsive landing page design with modern aesthetics, smooth animations, and optimized user
+                            flow for conversion.</p>
+                        <div class="project-tools">
+                            <span>Figma</span>
+                            <span>HTML/CSS</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal reveal-delay-1" data-category="webdesign">
+                    <div class="project-image">
+                        <div class="project-placeholder webdesign">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                            </svg>
+                            <span>Add Project Image</span>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="project-overlay-btn">View Project</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Website Design</span>
+                        <h3>Portfolio Website</h3>
+                        <p>Clean, professional portfolio website design showcasing creative work with smooth navigation
+                            and interactive elements.</p>
+                        <div class="project-tools">
+                            <span>Wix</span>
+                            <span>Elementor</span>
+                            <span>Web Design</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Experience</p>
+                <h2 class="section-title">Work & Education</h2>
+            </div>
+
+            <div class="experience-grid">
+                <!-- Work Experience -->
+                <div class="experience-col reveal">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                        </svg>
+                        Work Experience
+                    </h3>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-card">
+                                <span class="timeline-date">2024 – 2025</span>
+                                <h4>Website Design — Designer</h4>
+                                <p class="company">Academic Project</p>
+                                <p>Created a website user interface design for the CS Wizards Publication of Bulacan
+                                    State University using Figma. The design includes layouts for the homepage, article
+                                    listings, contact section, etc., focusing on clean visuals and user-friendly
+                                    navigation.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-card">
+                                <span class="timeline-date">June 2025 – July 2025</span>
+                                <h4>UI/UX Design Intern</h4>
+                                <p class="company">Philippine Batteries Inc</p>
+                                <ul>
+                                    <li>Redesigned the company's BIMS system with a more user-friendly interface.</li>
+                                    <li>Improved usability and workflow efficiency, earning positive feedback from
+                                        system operators.</li>
+                                    <li>Successfully implemented by the company, demonstrating the practical value of
+                                        the design.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-card">
+                                <span class="timeline-date">2024 – 2025</span>
+                                <h4>Game Development — Designer</h4>
+                                <p class="company">Academic Project</p>
+                                <ul>
+                                    <li>Designed and developed the entire visual assets and interface of a game using
+                                        Aseprite.</li>
+                                    <li>Created engaging sprites, animations, and UI elements to enhance the gameplay
+                                        experience.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="experience-col reveal reveal-delay-2">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                        </svg>
+                        Education
+                    </h3>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-card">
+                                <span class="timeline-date">2022 – Present</span>
+                                <h4>BS Mathematics Major in Computer Science</h4>
+                                <p class="company">Bulacan State University</p>
+                                <p>4th Year College Student — Specializing in computer science with a focus on web
+                                    design, UI/UX principles, and front-end development.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div style="margin-top: 40px;">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                            </svg>
+                            Languages
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;">
+                            <span class="tool-tag">English</span>
+                            <span class="tool-tag">Filipino</span>
+                        </div>
+                    </div>
+
+                    <!-- Reference -->
+                    <div style="margin-top: 40px;">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                                <path d="M16 3.13a4 4 0 010 7.75" />
+                            </svg>
+                            Reference
+                        </h3>
+                        <div class="timeline" style="margin-top: 16px;">
+                            <div class="timeline-item">
+                                <div class="timeline-card">
+                                    <h4>Jace Balicot</h4>
+                                    <p class="company">Project Manager</p>
+                                    <p style="font-size: 0.88rem; color: var(--text-muted);">
+                                        📞 09555803947<br>
+                                        ✉️ jacebalicot@gmail.com
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Contact</p>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Have a project in mind? I'd love to hear about it. Let's create something
+                    amazing.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-card reveal">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out for collaborations, freelance work, or full-time opportunities.</p>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <div class="contact-detail-text">
+                            <span>Email</span>
+                            <p>nickodalugdugan27@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.69 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.33 1.54.56 2.35.69A2 2 0 0122 16.92z" />
+                            </svg>
+                        </div>
+                        <div class="contact-detail-text">
+                            <span>Phone</span>
+                            <p>+63 962 427 1812</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div class="contact-detail-text">
+                            <span>Location</span>
+                            <p>Santa Maria, Bulacan, Philippines</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/dalugdugan-nicko-7b8a4a313/" class="social-link"
+                            title="LinkedIn" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <!-- Behance -->
+                        <a href="https://www.behance.net/nickordalugdu" class="social-link" title="Behance"
+                            target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.502 1.22.906.26 1.576.72 2.022 1.37.448.66.665 1.45.665 2.36 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.49.35-1.07.6-1.73.77-.66.17-1.37.25-2.13.25H0V4.51h6.938v-.007zM6.545 10.16c.6 0 1.07-.15 1.44-.44.37-.29.55-.74.55-1.35 0-.35-.06-.64-.19-.87-.13-.24-.3-.42-.53-.56-.23-.14-.5-.24-.81-.29-.31-.05-.65-.08-1.01-.08H3.19v3.6h3.355zm.19 5.88c.39 0 .75-.04 1.08-.12.33-.08.61-.22.85-.4.24-.18.42-.42.55-.72.13-.3.19-.67.19-1.12 0-.88-.25-1.53-.74-1.94-.49-.41-1.15-.61-1.98-.61H3.19v4.91h3.545zM21.69 18.23c-.63.47-1.5.71-2.61.71-.73 0-1.39-.12-1.96-.37-.57-.24-1.06-.58-1.46-1.02-.4-.43-.7-.95-.91-1.55-.21-.6-.32-1.26-.32-1.98 0-.75.11-1.43.34-2.05.23-.61.55-1.14.96-1.57.41-.44.9-.78 1.48-1.02.57-.24 1.21-.36 1.92-.36.8 0 1.48.16 2.05.47.57.31 1.04.73 1.39 1.27.36.54.62 1.16.78 1.86.17.71.22 1.46.17 2.26h-7.16c.04.94.35 1.67.92 2.18.57.51 1.28.77 2.14.77.67 0 1.22-.17 1.66-.52.44-.35.76-.79.95-1.32h2.82c-.47 1.5-1.28 2.58-2.42 3.24zM19.6 11.34c-.52-.46-1.18-.69-1.97-.69-.52 0-.96.09-1.33.27-.37.18-.67.41-.91.69-.24.28-.41.59-.52.93-.11.34-.18.66-.2.97h5.77c-.13-.88-.33-1.71-.84-2.17zM15.73 6.13h5.56v1.39h-5.56V6.13z" />
+                            </svg>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/nckdlgdgn" class="social-link" title="GitHub" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal reveal-delay-2" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Collaboration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project..."
+                            required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Nicko R. Dalugdugan. Designed with ❤️ — All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
