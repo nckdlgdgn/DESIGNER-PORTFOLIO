@@ -742,7 +742,12 @@
                     </div>
                 </div>
 
-                <form class="contact-form reveal reveal-delay-2" id="contactForm">
+                <form class="contact-form reveal reveal-delay-2" id="contactForm"
+                    action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="816dd32d-8b3b-49da-9472-a6a303c12651">
+                    <input type="hidden" name="subject" value="New message from Portfolio!">
+                    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Your Name</label>
