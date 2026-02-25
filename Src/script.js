@@ -191,11 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData);
+
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 });
                 const result = await response.json();
+                console.log('Web3Forms response:', result);
 
                 if (result.success) {
                     btn.innerHTML = `
@@ -205,11 +212,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
                     contactForm.reset();
                 } else {
-                    btn.innerHTML = '❌ Failed to send. Try again.';
+                    console.error('Web3Forms error:', result);
+                    btn.innerHTML = '❌ ' + (result.message || 'Failed to send.');
                     btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
                 }
             } catch (error) {
-                btn.innerHTML = '❌ Error. Try again.';
+                console.error('Fetch error:', error);
+                btn.innerHTML = '❌ Network error. Try again.';
                 btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
             }
 
