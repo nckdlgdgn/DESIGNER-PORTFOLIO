@@ -174,7 +174,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact form is handled natively by Web3Forms (action + method in HTML)
+    // ========== CONTACT FORM LOADING ==========
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => {
+            const btn = contactForm.querySelector('.form-submit .btn');
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                </svg>
+                Sending...
+            `;
+            btn.style.background = 'linear-gradient(135deg, #6366f1, #8b5cf6)';
+        });
+    }
+    // Add spin animation
+    const spinStyle = document.createElement('style');
+    spinStyle.textContent = `
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .spin { animation: spin 1s linear infinite; }
+    `;
+    document.head.appendChild(spinStyle);
 
     // ========== THEME TOGGLE ==========
     const themeToggle = document.getElementById('themeToggle');
