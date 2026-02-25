@@ -174,11 +174,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ========== CONTACT FORM LOADING ==========
+    // ========== CONTACT FORM HANDLER ==========
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', () => {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
             const btn = contactForm.querySelector('.form-submit .btn');
+            const originalText = btn.innerHTML;
+
+            // Step 1: Loading State
             btn.disabled = true;
             btn.innerHTML = `
                 <svg class="spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -187,15 +191,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 Sending...
             `;
             btn.style.background = 'linear-gradient(135deg, #6366f1, #8b5cf6)';
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    // Step 2: Success State
+                    btn.innerHTML = `
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Message Sent!
+                    `;
+                    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+
+                    // Reset form
+                    contactForm.reset();
+
+                    // Step 3: Redirect after a brief pause
+                    setTimeout(() => {
+                        const redirectUrl = contactForm.querySelector('input[name="redirect"]').value;
+                        window.location.href = redirectUrl || window.location.href;
+                    }, 2000);
+                } else {
+                    throw new Error(result.message || 'Failed to send');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                btn.innerHTML = '❌ Error. Try again.';
+                btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }
         });
     }
+
     // Add spin animation
-    const spinStyle = document.createElement('style');
-    spinStyle.textContent = `
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .spin { animation: spin 1s linear infinite; }
-    `;
-    document.head.appendChild(spinStyle);
+    if (!document.getElementById('spinAnimation')) {
+        const spinStyle = document.createElement('style');
+        spinStyle.id = 'spinAnimation';
+        spinStyle.textContent = `
+            @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+            .spin { animation: spin 1s linear infinite; }
+        `;
+        document.head.appendChild(spinStyle);
+    }
 
     // ========== THEME TOGGLE ==========
     const themeToggle = document.getElementById('themeToggle');
