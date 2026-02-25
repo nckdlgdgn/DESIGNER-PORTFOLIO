@@ -177,21 +177,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== CONTACT FORM ==========
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            // Show simple confirmation
             const btn = contactForm.querySelector('.form-submit .btn');
             const originalText = btn.innerHTML;
+
+            // Show loading state
             btn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-        Message Sent!
-      `;
-            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+                Sending...
+            `;
+            btn.disabled = true;
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    btn.innerHTML = `
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Message Sent!
+                    `;
+                    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                    contactForm.reset();
+                } else {
+                    btn.innerHTML = '❌ Failed to send. Try again.';
+                    btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                }
+            } catch (error) {
+                btn.innerHTML = '❌ Error. Try again.';
+                btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+            }
 
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = '';
-                contactForm.reset();
+                btn.disabled = false;
             }, 3000);
         });
     }
