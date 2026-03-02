@@ -1,3 +1,11 @@
+/* Ensure all tool icons are the same size */
+.tool-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
 /* ===================================
    DESIGN SYSTEM — Nicko R. Dalugdugan
    Premium Dark Portfolio
@@ -895,8 +903,10 @@ section {
 }
 
 /* Tools */
+
 .tools-section {
     margin-top: var(--gap-xl);
+    text-align: center;
 }
 
 .tools-section h4 {
@@ -904,12 +914,14 @@ section {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: var(--gap-md);
+    text-align: center;
 }
 
 .tools-grid {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap-sm);
+    justify-content: center;
 }
 
 .tool-tag {
