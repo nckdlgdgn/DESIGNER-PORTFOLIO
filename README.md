@@ -21,6 +21,7 @@ A premium dark-themed portfolio website showcasing my work in **UI/UX Design**, 
 - 📊 **Animated Skill Bars** — Visual skill indicators with scroll-triggered animations
 - 📬 **Contact Form** — Get in touch section with social links
 - 🚀 **Auto Deploy** — GitHub Actions workflow for automatic deployment
+-   **Chatbot** — this portfolio of mine also have a chatbot that can ask anything about me
 
 ---
 
