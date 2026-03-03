@@ -816,6 +816,52 @@
         </div>
     </footer>
 
+    <!-- ========== CHATBOT ========== -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+    </div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">N</div>
+                <div>
+                    <h4>Nicko's Assistant</h4>
+                    <span class="chatbot-status">Online</span>
+                </div>
+            </div>
+            <button class="chatbot-close" id="chatbotClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-msg bot">
+                <p>Hi there! 👋 I'm Nicko's portfolio assistant. Ask me anything about his skills, projects, experience, or how to get in touch!</p>
+            </div>
+            <div class="chatbot-suggestions" id="chatbotSuggestions">
+                <button class="suggestion-btn" data-q="skills">What are his skills?</button>
+                <button class="suggestion-btn" data-q="projects">Show me his projects</button>
+                <button class="suggestion-btn" data-q="experience">Work experience?</button>
+                <button class="suggestion-btn" data-q="contact">How to contact him?</button>
+                <button class="suggestion-btn" data-q="tools">What tools does he use?</button>
+                <button class="suggestion-btn" data-q="education">Education?</button>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type a message..." autocomplete="off">
+            <button id="chatbotSend">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script src="script.js?v=6"></script>
 </body>
 

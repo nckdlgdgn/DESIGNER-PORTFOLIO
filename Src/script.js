@@ -368,4 +368,212 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     animateParticles();
+
+    // ========== CHATBOT ==========
+    const chatToggle = document.getElementById('chatbotToggle');
+    const chatWindow = document.getElementById('chatbotWindow');
+    const chatClose = document.getElementById('chatbotClose');
+    const chatInput = document.getElementById('chatbotInput');
+    const chatSend = document.getElementById('chatbotSend');
+    const chatMessages = document.getElementById('chatbotMessages');
+    const suggestions = document.querySelectorAll('.suggestion-btn');
+
+    // Track which topics have been asked
+    const askedTopics = new Set();
+
+    // All available suggestion topics
+    const allSuggestions = [
+        { key: 'about', label: 'Who is Nicko?' },
+        { key: 'skills', label: 'What are his skills?' },
+        { key: 'projects', label: 'Show me his projects' },
+        { key: 'experience', label: 'Work experience?' },
+        { key: 'contact', label: 'How to contact him?' },
+        { key: 'tools', label: 'What tools does he use?' },
+        { key: 'education', label: 'Education?' },
+        { key: 'available', label: 'Is he available for work?' },
+        { key: 'cv', label: 'Download his CV' },
+        { key: 'location', label: 'Where is he located?' },
+        { key: 'language', label: 'Languages spoken?' },
+    ];
+
+    chatToggle.addEventListener('click', () => {
+        chatWindow.classList.toggle('open');
+    });
+
+    chatClose.addEventListener('click', () => {
+        chatWindow.classList.remove('open');
+    });
+
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    suggestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const q = btn.getAttribute('data-q');
+            addUserMsg(btn.textContent);
+            removeSuggestions();
+            askedTopics.add(q);
+            showTyping(() => {
+                addBotMsg(getResponse(q));
+                showRemainingSuggestions();
+            });
+        });
+    });
+
+    function sendMessage() {
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        addUserMsg(msg);
+        chatInput.value = '';
+        removeSuggestions();
+        const key = matchIntent(msg);
+        askedTopics.add(key);
+        showTyping(() => {
+            addBotMsg(getResponse(key));
+            showRemainingSuggestions();
+        });
+    }
+
+    function removeSuggestions() {
+        const existing = chatMessages.querySelectorAll('.chatbot-suggestions');
+        existing.forEach(el => el.remove());
+    }
+
+    function showRemainingSuggestions() {
+        const remaining = allSuggestions.filter(s => !askedTopics.has(s.key));
+        if (remaining.length === 0) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'chatbot-suggestions';
+
+        remaining.forEach(s => {
+            const btn = document.createElement('button');
+            btn.className = 'suggestion-btn';
+            btn.textContent = s.label;
+            btn.addEventListener('click', () => {
+                addUserMsg(s.label);
+                removeSuggestions();
+                askedTopics.add(s.key);
+                showTyping(() => {
+                    addBotMsg(getResponse(s.key));
+                    showRemainingSuggestions();
+                });
+            });
+            wrapper.appendChild(btn);
+        });
+
+        chatMessages.appendChild(wrapper);
+        scrollChat();
+    }
+
+    function addUserMsg(text) {
+        const div = document.createElement('div');
+        div.className = 'chat-msg user';
+        div.innerHTML = `<p>${text}</p>`;
+        chatMessages.appendChild(div);
+        scrollChat();
+    }
+
+    function addBotMsg(html) {
+        const div = document.createElement('div');
+        div.className = 'chat-msg bot';
+        div.innerHTML = html;
+        chatMessages.appendChild(div);
+        scrollChat();
+    }
+
+    function showTyping(callback) {
+        const typing = document.createElement('div');
+        typing.className = 'chatbot-typing';
+        typing.innerHTML = '<span></span><span></span><span></span>';
+        chatMessages.appendChild(typing);
+        scrollChat();
+        setTimeout(() => {
+            typing.remove();
+            callback();
+        }, 800 + Math.random() * 600);
+    }
+
+    function scrollChat() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function matchIntent(msg) {
+        const m = msg.toLowerCase();
+        if (/skill|ability|capable|magaling/i.test(m)) return 'skills';
+        if (/project|work|gawa|portfolio|featured/i.test(m)) return 'projects';
+        if (/experience|intern|job|trabaho|employed/i.test(m)) return 'experience';
+        if (/contact|email|phone|number|reach|message|hire/i.test(m)) return 'contact';
+        if (/tool|software|tech|stack|figma|canva|photoshop|program/i.test(m)) return 'tools';
+        if (/education|school|study|university|college|bulsu|course/i.test(m)) return 'education';
+        if (/who|about|nicko|name|sino/i.test(m)) return 'about';
+        if (/location|where|address|san|nasaan|bulacan/i.test(m)) return 'location';
+        if (/hi|hello|hey|kumusta|uy|sup|yo|good/i.test(m)) return 'greeting';
+        if (/download|cv|resume/i.test(m)) return 'cv';
+        if (/available|open|hire|freelance|full.?time|remote/i.test(m)) return 'available';
+        if (/language|english|filipino|tagalog/i.test(m)) return 'language';
+        if (/thank|salamat|tnx|thanks/i.test(m)) return 'thanks';
+        return 'unknown';
+    }
+
+    function getResponse(key) {
+        const responses = {
+            greeting: `<p>Hello! 👋 Welcome to Nicko's portfolio. How can I help you? Feel free to ask about his skills, projects, or how to get in touch!</p>`,
+            about: `<p>Nicko Ronquillo Dalugdugan is a <strong>UI/UX Designer</strong> and 4th-year BS Mathematics (Computer Science) student at Bulacan State University. He's passionate about creating beautiful, user-centered digital experiences.</p>`,
+            skills: `<p>Here are Nicko's key skills:</p>
+                <ul>
+                    <li>🎨 UI/UX Design — 100%</li>
+                    <li>🖥️ Website Layout & Design — 88%</li>
+                    <li>🎯 Prototyping & Wireframing — 87%</li>
+                    <li>🌈 Color Theory & Composition — 85%</li>
+                    <li>📐 Graphic Design — 82%</li>
+                    <li>💻 Front-End Development — 70%</li>
+                </ul>`,
+            projects: `<p>Nicko's featured projects:</p>
+                <ul>
+                    <li>⭐ <strong>Food Ordering App</strong> — Full UI/UX design with user-centered approach</li>
+                    <li>⭐ <strong>Game UI & Visual Assets</strong> — Pixel art sprites, animations & game interface</li>
+                    <li>⭐ <strong>BIMS Redesign</strong> — System redesign for Philippine Batteries Inc (implemented!)</li>
+                </ul>
+                <p>He also has projects in graphic design, web design, and more. <a href="#projects">View all projects →</a></p>`,
+            experience: `<p>Nicko's work experience:</p>
+                <ul>
+                    <li>🏢 <strong>UI/UX Design Intern</strong> at Philippine Batteries Inc (June–July 2025) — Redesigned their BIMS system</li>
+                    <li>🎮 <strong>Game Designer</strong> — Created visual assets & UI for a game project</li>
+                    <li>🌐 <strong>Web Designer</strong> — Designed CS Wizards Publication website for BulSU</li>
+                </ul>`,
+            contact: `<p>You can reach Nicko through:</p>
+                <ul>
+                    <li>📧 Email: <a href="mailto:nickodalugdugan27@gmail.com">nickodalugdugan27@gmail.com</a></li>
+                    <li>📱 Phone: +63 9951214380</li>
+                    <li>💼 <a href="https://www.linkedin.com/in/dalugdugan-nicko-7b8a4a313/" target="_blank">LinkedIn</a></li>
+                    <li>🎨 <a href="https://www.behance.net/nickordalugdu" target="_blank">Behance</a></li>
+                    <li>🐙 <a href="https://github.com/nckdlgdgn" target="_blank">GitHub</a></li>
+                </ul>
+                <p>Or use the <a href="#contact">contact form</a> to send a message directly!</p>`,
+            tools: `<p>Nicko's toolkit:</p>
+                <ul>
+                    <li>🎨 <strong>Design:</strong> Figma, Canva, Adobe Photoshop, Aseprite</li>
+                    <li>💻 <strong>Development:</strong> HTML, CSS, JavaScript, VSCode</li>
+                    <li>🌐 <strong>Web Builders:</strong> Wix, Elementor</li>
+                    <li>📝 <strong>Other:</strong> LaTeX, MATLAB, CapCut</li>
+                </ul>`,
+            education: `<p>📚 <strong>BS Mathematics Major in Computer Science</strong><br>Bulacan State University (2022 – Present)<br>4th year student specializing in web design, UI/UX principles, and front-end development.</p>`,
+            location: `<p>📍 Nicko is based in <strong>Santa Maria, Bulacan, Philippines</strong>. He's open to remote work!</p>`,
+            cv: `<p>You can download Nicko's CV directly! 👇</p><p><a href="CV(Nicko Ronquillo Dalugdugan-Designer).pdf" download>📄 Download CV</a></p>`,
+            available: `<p>Yes! ✅ Nicko is currently <strong>open to work</strong> — both full-time and remote positions. He's also available for freelance projects. <a href="#contact">Get in touch!</a></p>`,
+            language: `<p>Nicko speaks:</p><ul><li>🇬🇧 English</li><li>🇵🇭 Filipino (Tagalog)</li></ul>`,
+            thanks: `<p>You're welcome! 😊 Let me know if you have any other questions about Nicko's work.</p>`,
+            unknown: `<p>I'm not sure about that one! 🤔 Try asking about:</p>
+                <ul>
+                    <li>His <strong>skills</strong> or <strong>tools</strong></li>
+                    <li>His <strong>projects</strong> or <strong>experience</strong></li>
+                    <li>How to <strong>contact</strong> him</li>
+                    <li>His <strong>education</strong> or <strong>availability</strong></li>
+                </ul>`
+        };
+        return responses[key] || responses.unknown;
+    }
 });
